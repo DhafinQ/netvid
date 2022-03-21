@@ -20,17 +20,21 @@
             News
         </h2>
         <div class="mt-4 grid grid-cols-5 gap-6 sm:justify-center">
-            @foreach ($datas as $data)
+            @foreach ($datas as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
                 </div>
             </a>
+            <!-- {{++$keys}} -->
+            @if ($keys == 5)
+                @break
+            @endif
             @endforeach
         </div>
 
-        <h2 class="flex text-white font-semibold text-2xl mt-4 items-center content-center">
+        <h2 class="flex text-white font-semibold text-2xl mt-12 items-center content-center">
             <div class="mr-2">
                 <x-heroicon-o-fire class="w-8 h-8 text-gray-200"/>
             </div>
@@ -38,26 +42,30 @@
         </h2>
 
         <div class="mt-4 grid grid-cols-5 gap-6 sm:justify-center">
-            @foreach ($datas as $data)
+            @foreach ($datas as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
                 </div>
             </a>
+            <!--{{++$keys}}-->
+            @if ($keys == 5)
+                @break
+            @endif
             @endforeach
         </div>
         
-        <h2 class="flex text-white font-semibold text-2xl mt-4 items-center content-center">
+        <h2 class="flex text-white font-semibold text-2xl items-center content-center mt-12">
             <div class="mr-2">
                 <x-heroicon-o-emoji-happy class="w-8 h-8 text-gray-200"/>
             </div>
             Recommended
         </h2>
-        <div class="mt-4 grid grid-cols-5 gap-6 sm:justify-center">
+        <div class="mt-4 grid grid-cols-7 gap-6 sm:justify-center">
             @foreach ($datas as $data)
             <a href="{{route('serial.show' , $data->id)}}">
-                <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
+                <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
                 </div>
@@ -65,7 +73,7 @@
             @endforeach
             @foreach ($datas as $data)
             <a href="{{route('serial.show' , $data->id)}}">
-                <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
+                <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
                 </div>
