@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->integer('tahun');
+            $table->integer('durasi');
             $table->string('genre');
-            $table->string('sinopsis');
+            $table->text('sinopsis');
             $table->string('poster');
             $table->timestamps();
 

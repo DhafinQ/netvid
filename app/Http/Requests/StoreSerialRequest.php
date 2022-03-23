@@ -28,6 +28,7 @@ class StoreSerialRequest extends FormRequest
         return [
             'judul' => 'required',
             'tahun' => 'required',
+            'durasi' => 'required',
             'genre' => 'required',
             'sinopsis' => 'required',
             'poster' => 'required|image',

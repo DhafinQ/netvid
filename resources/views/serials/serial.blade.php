@@ -1,13 +1,46 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 class="text-xl font-semibold leading-tight">
+            {{-- <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Serial') }}
-            </h2>
-            <a href="{{route('serial.create')}}" class="text-slate-100 hover:text-white hover:scale-110 rounded-md py-2 px-4 bg-red-500 duration-300">Add Serial</a>
+            </h2> --}}
+            @auth
+                <a href="{{route('serial.create')}}" class="text-gray-400 underline hover:text-gray-300 hover:scale-110">Add Serial</a>
+            @endauth
         </div>
     </x-slot>
-    {{-- Hots --}}
+    {{-- Slider --}}
+    <div class="swiper mySwiper px-4 py-2 mb-8 mt-4">
+        <div class="swiper-wrapper">
+        @foreach ($datas as $keys => $serial)
+        <div class="swiper-slide">
+            <div class="object-cover w-full h-96 grid grid-cols-2">
+              <div class="ml-32 mt-8">
+                  <div class="font-semibold text-2xl text-white">{{$serial->judul}}</div>
+                  <div class="mb-8 mt-4">{{$serial->sinopsis}}</div>
+                  <div class="content-end">
+                      <a href="{{ route('serial.show' , $serial->id) }}" class="py-4 w-48 underline text-gray-200 hover:text-white rounded-md hover:scale-110 ease-out duration-300"> 
+                           See More!
+                      </a>
+                  </div>
+              </div>
+              <div class="ml-32 mt-8">
+                  <img class="rounded-md scale-100 w-52 h-72 ml-16" src="{{$serial->posterImage()}}" alt="">
+              </div>
+            </div>
+        </div>
+        <!--{{++$keys}}-->
+        @if ($keys == 4)
+            @break
+        @endif
+        @endforeach
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+
     {{--  Movie Poster  --}}
     <div class="p-6 overflow-hidden bg-slate-800 rounded-md shadow-md">
         <x-auth-validation-errors />
@@ -19,7 +52,7 @@
             </div>
             News
         </h2>
-        <div class="mt-4 grid grid-cols-5 gap-6 sm:justify-center">
+        <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
             @foreach ($datas as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
@@ -41,7 +74,7 @@
             Trending
         </h2>
 
-        <div class="mt-4 grid grid-cols-5 gap-6 sm:justify-center">
+        <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
             @foreach ($datas as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
@@ -62,7 +95,7 @@
             </div>
             Recommended
         </h2>
-        <div class="mt-4 grid grid-cols-7 gap-6 sm:justify-center">
+        <div class="mt-4 grid md:grid-cols-7 sm:grid sm:grid-cols-3 gap-6 sm:justify-center">
             @foreach ($datas as $data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
@@ -83,5 +116,27 @@
         
     </div>
 
+  
+
+      <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
     
 </x-app-layout>

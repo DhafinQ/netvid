@@ -25,8 +25,8 @@
                 @if (!Auth::check())
 
                     <div class="hidden top-0 right-0 px- py-2 sm:block">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        <a href="{{ route('login') }}" class="text-gray-200 text-lg py-4 px-4 rounded-lg hover:bg-red-600 hover:scale-105 duration-150 ease-out hover:text-white">Log in</a>
+                        <a href="{{ route('register') }}" class="ml-1 text-lg text-gray-200 py-4 px-4 rounded-lg hover:bg-red-600 hover:scale-105 duration-150 ease-out hover:text-white">Register</a>
                     </div>
                     
                 @endif
@@ -36,7 +36,6 @@
                     <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-red-400 focus:rounded-sm focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200">
                     <div>{{ auth()->user()->username }}</div>
-
                     <div class="ml-1">
                         <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"

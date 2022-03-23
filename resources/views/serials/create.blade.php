@@ -24,6 +24,13 @@
                                     <x-input id="tahun" class="block my-2 w-full" type="number" min="1888" max="2022" name="tahun" autofocus />
                                 </div>
                                 <div>
+                                    <x-label for="durasi" :value="__('Durasi')" />
+                                    <input type="number" name="durasi" id="durasi"
+                                    class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                    focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="20" max="900" autofocus placeholder="minute">
+                                </div>
+                                <div>
                                     <x-label for="genre" :value="__('Genre')" />
                                     <x-input id="genre" class="block my-2 w-full" type="text" name="genre" autofocus />
                                 </div>
