@@ -32,6 +32,13 @@
                                     dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="20" max="900" autofocus placeholder="minute" value="{{$film->durasi}}">
                                 </div>
                                 <div>
+                                    <x-label for="rating" :value="__('Rating')" />
+                                    <input type="number" name="rating" id="rating"
+                                    class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                    focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="10" step="0.1" autofocus placeholder="1-10" value="{{$film->rating}}">
+                                </div>
+                                <div>
                                     <x-label for="genre" :value="__('Genre')" />
                                     <x-input id="genre" class="block my-2 w-full" type="text" name="genre" value="{{$film->genre}}" autofocus />
                                 </div>
@@ -44,6 +51,10 @@
                                 <div>
                                     <x-label for="poster" :value="__('Poster Film')" />
                                     <x-input  id="poster" class="block my-2 w-full" type="file" name="poster" autofocus />
+                                </div>
+                                <div>
+                                    <x-label for="cover" :value="__('Cover Film')" />
+                                    <x-input  id="cover" class="block my-2 w-full" type="file" name="cover" autofocus />
                                 </div>
                             {{-- </div> --}}
                         </div>

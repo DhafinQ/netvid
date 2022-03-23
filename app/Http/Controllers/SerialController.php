@@ -61,9 +61,16 @@ class SerialController extends Controller
 
         $imageArray = ['poster'=>$imagepath];
 
+        $coverpath = request('cover')->store('serialcover', 'public');
+        $cover = Image::make(public_path("storage/{$coverpath}"))->fit(960 , 540);
+        $cover->save();
+
+        $coverArray = ['cover'=>$coverpath];
+
         $serial->create(array_merge(
             $data,
-            $imageArray ?? []
+            $imageArray,
+            $coverArray
         ));
         
         return redirect()->route('serial.create')->with('success', 'New Serial Is Added!');
@@ -110,9 +117,17 @@ class SerialController extends Controller
             $imageArray = ['poster'=>$imagepath];
         }
 
+        if(request('cover')){
+            $coverpath = request('cover')->store('serialcover', 'public');
+            $cover = Image::make(public_path("storage/{$coverpath}"))->fit(960 , 540);
+            $cover->save();
+            $coverArray = ['cover'=>$coverpath];
+        }
+
         $serial->update(array_merge(
             $data,
-            $imageArray ?? []
+            $imageArray ?? [],
+            $coverArray ?? []
         ));
 
         return back()->with('success', 'Serials Is Updated!');

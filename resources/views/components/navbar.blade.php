@@ -6,6 +6,7 @@
     }">
 
     <div class="flex items-center gap-3">
+        <form action="{{route('search.index')}}" method="get"></form>
         {{-- <x-button type="button" class="md:hidden" iconOnly variant="secondary" srText="Toggle dark mode"
             @click="toggleTheme">
             <x-heroicon-o-moon x-show="!isDarkMode" aria-hidden="true" class="w-6 h-6" />
@@ -19,7 +20,16 @@
             <x-heroicon-o-moon x-show="!isDarkMode" aria-hidden="true" class="w-6 h-6" />
             <x-heroicon-o-sun x-show="isDarkMode" aria-hidden="true" class="w-6 h-6" />
         </x-button> --}}
+        <form method="get" action="{{route('search.index')}}" class="flex">
+            <input type="text" name="term" class="py-2 bg-slate-800  border-gray-400
+            dark:border-gray-600 dark:bg-dark-eval-1
+            dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 rounded-l-md" placeholder="Search..">
+            <x-button type="submit" class="" style="border-radius: 0px 5px 5px 0px">
+                <x-heroicon-o-search aria-hidden="true" class="w-6 h-6" />
+            </x-button>
+        </form>
         <x-dropdown align="right" width="48">
+            
             <x-slot name="trigger">
 
                 @if (!Auth::check())
@@ -78,7 +88,7 @@
         <x-heroicon-o-search aria-hidden="true" class="w-6 h-6" />
     </x-button> --}}
 
-    <a href="{{ route('serial.index') }}">
+    <a href="{{ route('home.index') }}">
         <span class="sr-only">NetVid</span>
         <x-application-logo aria-hidden="true" class="w-10 h-10" />
     </a>

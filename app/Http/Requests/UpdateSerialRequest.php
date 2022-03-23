@@ -27,10 +27,12 @@ class UpdateSerialRequest extends FormRequest
         return [
             'judul' => 'required',
             'tahun' => 'required',
-            'durasi' => 'required',
+            'durasi' => 'required|integer',
+            'rating' => 'required|numeric',
             'genre' => 'required',
             'sinopsis' => 'required',
-            'poster' => 'image',
+            'poster' => 'required|image',
+            'cover' => 'required|image',
         ];
     }
 }

@@ -60,9 +60,16 @@ class FilmController extends Controller
 
         $imageArray = ['poster'=>$imagepath];
 
+        $coverpath = request('cover')->store('serialcover', 'public');
+        $cover = Image::make(public_path("storage/{$coverpath}"))->fit(960 , 540);
+        $cover->save();
+
+        $coverArray = ['cover'=>$coverpath];
+
         $film->create(array_merge(
             $data,
-            $imageArray ?? []
+            $imageArray,
+            $coverArray
         ));
         
         return redirect()->route('film.create')->with('success', 'New Film Is Added!');
@@ -108,10 +115,17 @@ class FilmController extends Controller
             $image->save();
             $imageArray = ['poster'=>$imagepath];
         }
+        if(request('cover')){
+            $coverpath = request('cover')->store('serialcover', 'public');
+            $cover = Image::make(public_path("storage/{$coverpath}"))->fit(600 , 800);
+            $cover->save();
+            $coverArray = ['cover'=>$coverpath];
+        }
 
         $film->update(array_merge(
             $data,
-            $imageArray ?? []
+            $imageArray ?? [],
+            $coverArray ?? []
         ));
 
         return back()->with('success', 'Film Is Updated!');

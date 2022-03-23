@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('judul');
             $table->integer('tahun');
             $table->integer('durasi');
+            $table->float('rating');
             $table->string('genre');
             $table->text('sinopsis');
             $table->string('poster');
+            $table->string('cover');
             $table->timestamps();
 
         });
