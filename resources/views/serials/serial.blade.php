@@ -24,8 +24,8 @@
                       </a>
                   </div>
               </div>
-              <div class="ml-32 mt-8">
-                  <img class="rounded-md scale-100 w-52 h-72 ml-16" src="{{$serial->posterImage()}}" alt="">
+              <div class="mt-8">
+                  <img class="rounded-md scale-90" src="{{$serial->coverImage()}}" alt="">
               </div>
             </div>
         </div>
@@ -57,7 +57,10 @@
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
-                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
+                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
+                        {{$data->judul}}
+                        <div class="text-gray-100 text-sm">{{$data->tahun}}</div>
+                    </div>
                 </div>
             </a>
             <!-- {{++$keys}} -->
@@ -79,7 +82,10 @@
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
-                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
+                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
+                        {{$data->judul}}
+                        <div class="text-gray-100 text-sm">{{$data->tahun}}</div>
+                    </div>
                 </div>
             </a>
             <!--{{++$keys}}-->
@@ -100,15 +106,11 @@
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
-                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
-                </div>
-            </a>
-            @endforeach
-            @foreach ($datas as $data)
-            <a href="{{route('serial.show' , $data->id)}}">
-                <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
-                    <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
-                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
+                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
+                        {{$data->judul}}
+                        <br>
+                        <div class="text-gray-100 flex-shrink">{{$data->tahun}}</div>
+                    </div>
                 </div>
             </a>
             @endforeach

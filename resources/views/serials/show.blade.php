@@ -19,7 +19,12 @@
 
                     <div class="grid grid-cols-2 gap-6 mb-36">
                         <div class="">
-                            <div class="font-semibold text-2xl text-white">{{$serial->judul}}</div>
+                            <div class="font-semibold text-2xl text-white">
+                                {{$serial->judul}}
+                                <div class="text-yellow-400 flex items-center">
+                                    <x-heroicon-o-star class="w-6 h-6 mr-2"/> {{$serial->rating}}
+                                </div>
+                            </div>
                             <div class="mr-2 mt-2 text-gray-400 flex items-center">
                                 <x-heroicon-o-clock class="w-4 h-4 mr-2"/> {{$serial->durasi}} Minute 
                                 | <x-heroicon-o-tag class="w-4 h-4 mx-2"/> {{$serial->genre}} 
