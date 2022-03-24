@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('profiles' , ProfileController::class);
 });
 
+// Admin Route
 
 
 Route::resource('serial' , SerialController::class);

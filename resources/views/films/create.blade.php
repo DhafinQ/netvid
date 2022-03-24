@@ -4,13 +4,11 @@
             {{ __('Add New Film') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-slate-800">
                     <x-auth-validation-errors />
-                    <x-success-message />
 
                     <form method="POST" action="{{ route('film.store') }}" enctype="multipart/form-data">
                         @csrf

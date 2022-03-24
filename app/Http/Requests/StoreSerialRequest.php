@@ -28,7 +28,8 @@ class StoreSerialRequest extends FormRequest
         return [
             'judul' => 'required',
             'tahun' => 'required',
-            'durasi' => 'required|integer',
+            'season' => 'required|integer|max:100',
+            'episode' => 'required|integer',
             'rating' => 'required|numeric',
             'genre' => 'required',
             'sinopsis' => 'required',

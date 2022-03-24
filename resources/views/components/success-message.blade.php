@@ -1,6 +1,6 @@
 @if (session('success'))
-    <div class="alert flex flex-row items-center bg-slate-700 p-5 rounded border-b-2 border-green-400 py-5 mb-4">
-        <div class="alert-icon flex items-center bg-slate-700  border-2 border-green-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+    <div class="alert flex flex-row items-center bg-slate-800 p-5 rounded border-b-2 border-green-400 py-5 mb-4">
+        <div class="alert-icon flex items-center bg-slate-800 border-2 border-green-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
 				<span class="text-green-500">
 					<svg fill="currentColor"
                          viewBox="0 0 20 20"
@@ -12,7 +12,7 @@
 				</span>
         </div>
         <div class="alert-content ml-4">
-            <div class="alert-title font-semibold text-lg text-green-600">
+            <div class="alert-title font-semibold text-lg text-green-300">
                 {{ __('Success') }}
             </div>
             <div class="alert-description text-sm text-green-400">

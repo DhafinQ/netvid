@@ -4,11 +4,12 @@
             {{-- <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Serial') }}
             </h2> --}}
-            @auth
-                <a href="{{route('serial.create')}}" class="text-gray-400 underline hover:text-gray-300 hover:scale-110">Add Serial</a>
-            @endauth
+            @can('create_serial')
+                <a href="{{route('serial.create')}}" class="text-gray-400 underline hover:text-gray-300 hover:scale-110">Add Series</a>
+            @endcan
         </div>
     </x-slot>
+    <x-success-message />
     {{-- Slider --}}
     <div class="swiper mySwiper px-4 py-2 mb-8 mt-4">
         <div class="swiper-wrapper">
@@ -43,8 +44,6 @@
 
     {{--  Movie Poster  --}}
     <div class="p-6 overflow-hidden bg-slate-800 rounded-md shadow-md">
-        <x-auth-validation-errors />
-        <x-success-message />
 
         <h2 class="flex text-white font-semibold text-2xl mt-4 items-center content-center">
             <div class="mr-2">
@@ -53,13 +52,12 @@
             News
         </h2>
         <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
-            @foreach ($datas as $keys=>$data)
+            @foreach ($news as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
                         {{$data->judul}}
-                        <div class="text-gray-100 text-sm">{{$data->tahun}}</div>
                     </div>
                 </div>
             </a>
@@ -78,13 +76,12 @@
         </h2>
 
         <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
-            @foreach ($datas as $keys=>$data)
+            @foreach ($trends as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">
                 <div class="w-48 h-64 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
                         {{$data->judul}}
-                        <div class="text-gray-100 text-sm">{{$data->tahun}}</div>
                     </div>
                 </div>
             </a>
@@ -109,7 +106,6 @@
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">
                         {{$data->judul}}
                         <br>
-                        <div class="text-gray-100 flex-shrink">{{$data->tahun}}</div>
                     </div>
                 </div>
             </a>

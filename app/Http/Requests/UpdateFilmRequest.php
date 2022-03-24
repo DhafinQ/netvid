@@ -31,8 +31,8 @@ class UpdateFilmRequest extends FormRequest
             'rating' => 'required|numeric',
             'genre' => 'required',
             'sinopsis' => 'required',
-            'poster' => 'required|image',
-            'cover' => 'required|image',
+            'poster' => 'image',
+            'cover' => 'image',
         ];
     }
 }

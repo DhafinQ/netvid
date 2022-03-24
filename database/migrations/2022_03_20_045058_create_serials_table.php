@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->integer('tahun');
-            $table->integer('durasi');
+            $table->integer('season');
+            $table->integer('episode');
             $table->float('rating');
             $table->string('genre');
             $table->text('sinopsis');

@@ -30,8 +30,10 @@ class FilmController extends Controller
      */
     public function index(Film $data)
     {
+        $news = $data->query()->where('tahun', '>=' , 2021)->get();
+        $trends = $data->query()->where('rating', '>=' , 8.9)->get();
         $datas = $data->all();
-        return view('films.film', compact('datas'));
+        return view('films.film', compact('datas','news','trends'));
     }
 
     /**
@@ -41,6 +43,8 @@ class FilmController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_film');
+
         return view('films.create');
     }
 
@@ -52,6 +56,8 @@ class FilmController extends Controller
      */
     public function store(StoreFilmRequest $request, Film $film)
     {
+        $this->authorize('create_film');
+
         $data = $request->validated();
 
         $imagepath = request('poster')->store('filmposter', 'public');
@@ -72,7 +78,7 @@ class FilmController extends Controller
             $coverArray
         ));
         
-        return redirect()->route('film.create')->with('success', 'New Film Is Added!');
+        return redirect()->route('film.index')->with('success', 'New Film Is Added!');
     }
 
     /**
@@ -83,8 +89,10 @@ class FilmController extends Controller
      */
     public function show(Film $film)
     {
+        $news = Film::query()->where('tahun', '>=' , 2020)->get();
+
         $films = Film::all();
-        return view('films.show', compact('film','films'));
+        return view('films.show', compact('film','films','news'));
     }
 
     /**
@@ -95,6 +103,8 @@ class FilmController extends Controller
      */
     public function edit(Film $film)
     {
+        $this->authorize('create_film');
+
         return view('films.edit' , compact('film'));
     }
 
@@ -107,6 +117,8 @@ class FilmController extends Controller
      */
     public function update(UpdateFilmRequest $request, Film $film)
     {
+        $this->authorize('create_film');
+
         $data = $request->validated();
 
         if(request('poster')){
@@ -128,7 +140,7 @@ class FilmController extends Controller
             $coverArray ?? []
         ));
 
-        return back()->with('success', 'Film Is Updated!');
+        return redirect()->route('film.index')->with('success', 'Film Is Updated!');
     }
 
     /**
@@ -139,6 +151,8 @@ class FilmController extends Controller
      */
     public function destroy(Film $film)
     {
+        $this->authorize('create_film');
+
         $film->delete();
 
         return redirect()->route('film.index')->with('success', 'Film Is Deleted!');

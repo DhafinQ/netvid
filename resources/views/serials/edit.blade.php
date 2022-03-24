@@ -29,11 +29,18 @@
                                     <x-input id="genre" class="block my-2 w-full" type="text" name="genre" value="{{$serial->genre}}" autofocus />
                                 </div>
                                 <div>
-                                    <x-label for="durasi" :value="__('Durasi')" />
-                                    <input type="number" name="durasi" id="durasi"
+                                    <x-label for="season" :value="__('Season')" />
+                                    <input type="number" name="season" id="season"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="20" max="900" value="{{$serial->durasi}}" autofocus>
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="50" value="{{$serial->season}}" autofocus>
+                                </div>
+                                <div>
+                                    <x-label for="episode" :value="__('Episode')" />
+                                    <input type="number" name="episode" id="episode"
+                                    class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                    focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="5000" value="{{$serial->episode}}" autofocus>
                                 </div>
                                 <div>
                                     <x-label for="rating" :value="__('Rating')" />

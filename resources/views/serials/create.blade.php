@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-300 leading-tight">
-            {{ __('Add New Serial') }}
+            {{ __('Add New Series') }}
         </h2>
     </x-slot>
 
@@ -10,7 +10,6 @@
             <div class="bg-slate-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-slate-800">
                     <x-auth-validation-errors />
-                    <x-success-message />
 
                     <form method="POST" action="{{ route('serial.store') }}" enctype="multipart/form-data">
                         @csrf
@@ -24,11 +23,18 @@
                                     <x-input id="tahun" class="block my-2 w-full" type="number" min="1888" max="2022" name="tahun" autofocus />
                                 </div>
                                 <div>
-                                    <x-label for="durasi" :value="__('Durasi')" />
-                                    <input type="number" name="durasi" id="durasi"
+                                    <x-label for="season" :value="__('Season')" />
+                                    <input type="number" name="season" id="season"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="20" max="900" autofocus placeholder="minute">
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="50" autofocus>
+                                </div>
+                                <div>
+                                    <x-label for="episode" :value="__('Episode')" />
+                                    <input type="number" name="episode" id="episode"
+                                    class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                    focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="5000" autofocus>
                                 </div>
                                 <div>
                                     <x-label for="rating" :value="__('Rating')" />
@@ -48,23 +54,22 @@
                                     dark:text-gray-300 dark:focus:ring-offset-dark-eval-1" id="sinopsis" cols="30" rows="10" style="resize:none;"></textarea>
                                 </div>
                                 <div>
-                                    <x-label for="poster" :value="__('Poster Serial')" />
+                                    <x-label for="poster" :value="__('Poster Series')" />
                                     <x-input  id="poster" class="block my-2 w-full" type="file" name="poster" autofocus />
                                 </div>
                                 <div>
-                                    <x-label for="cover" :value="__('Cover Serial')" />
+                                    <x-label for="cover" :value="__('Cover Series')" />
                                     <x-input  id="cover" class="block my-2 w-full" type="file" name="cover" autofocus />
                                 </div>
                             {{-- </div> --}}
                         </div>
                         <div class="flex items-center justify-end mb-4 mx-4">
                             <x-button class="ml-3">
-                                {{ __('Add Serial') }}
+                                {{ __('Add Series') }}
                             </x-button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
 </x-app-layout>
