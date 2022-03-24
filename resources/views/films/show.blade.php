@@ -54,7 +54,7 @@
                             News
                         </h2>
                         <div class="mt-4 grid md:grid-cols-7 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
-                            @foreach ($films as $keys=>$data)
+                            @foreach ($news as $keys=>$data)
                             <a href="{{route('serial.show' , $data->id)}}">
                                 <div class="w-32 h-48 mr-4 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="margin-right:8px;background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>

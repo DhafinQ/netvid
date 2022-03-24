@@ -16,7 +16,6 @@
                 <div class="p-6">
                     <x-auth-validation-errors />
                     <x-success-message />
-
                     <div class="grid grid-cols-2 gap-6 mb-36">
                         <div class="">
                             <div class="font-semibold text-2xl text-white">
@@ -26,7 +25,8 @@
                                 </div>
                             </div>
                             <div class="mr-2 mt-2 text-gray-400 flex items-center">
-                                <x-heroicon-o-clock class="w-4 h-4 mr-2"/> {{$serial->durasi}} Minute 
+                                <x-heroicon-o-clock class="w-4 h-4 mr-2"/> {{$serial->season}} Seasons 
+                                {{$serial->episode}} Episodes
                                 | <x-heroicon-o-tag class="w-4 h-4 mx-2"/> {{$serial->genre}} 
                                 | {{$serial->tahun}}
                             </div>
@@ -53,7 +53,7 @@
                             News
                         </h2>
                         <div class="mt-4 grid md:grid-cols-7 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
-                            @foreach ($serials as $keys=>$data)
+                            @foreach ($news as $keys=>$data)
                             <a href="{{route('serial.show' , $data->id)}}">
                                 <div class="w-32 h-48 mr-4 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="margin-right:8px;background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>

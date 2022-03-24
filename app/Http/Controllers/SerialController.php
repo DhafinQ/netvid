@@ -31,8 +31,11 @@ class SerialController extends Controller
      */
     public function index(Serial $data)
     {
+        $news = $data->query()->where('tahun', '>=' , 2020)->get();
+        $trends = $data->query()->where('rating', '>=' , 8.8)->get();
+
         $datas = $data->all();
-        return view('serials.serial' ,compact('datas'));
+        return view('serials.serial' ,compact('datas','news','trends'));
     }
 
     /**
@@ -42,6 +45,8 @@ class SerialController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_serial');
+
         return view('serials.create');
     }
 
@@ -53,6 +58,9 @@ class SerialController extends Controller
      */
     public function store(StoreSerialRequest $request, Serial $serial)
     {
+
+        $this->authorize('create_serial');
+
         $data = $request->validated();
 
         $imagepath = request('poster')->store('serialposter', 'public');
@@ -73,7 +81,7 @@ class SerialController extends Controller
             $coverArray
         ));
         
-        return redirect()->route('serial.create')->with('success', 'New Serial Is Added!');
+        return redirect()->route('serial.index')->with('success', 'New Series Is Added!');
     }
 
     /**
@@ -84,8 +92,10 @@ class SerialController extends Controller
      */
     public function show(Serial $serial)
     {
+        $news = Serial::query()->where('tahun', '>=' , 2020)->get();
+
         $serials = Serial::all();
-        return view('serials.show', compact('serial','serials'));
+        return view('serials.show', compact('serial','serials','news'));
     }
 
     /**
@@ -96,6 +106,8 @@ class SerialController extends Controller
      */
     public function edit(Serial $serial)
     {
+        $this->authorize('create_serial');
+
         return view('serials.edit' , compact('serial'));
     }
 
@@ -108,6 +120,8 @@ class SerialController extends Controller
      */
     public function update(UpdateSerialRequest $request, Serial $serial)
     {
+        $this->authorize('create_serial');
+
         $data = $request->validated();
 
         if(request('poster')){
@@ -130,7 +144,7 @@ class SerialController extends Controller
             $coverArray ?? []
         ));
 
-        return back()->with('success', 'Serials Is Updated!');
+        return redirect()->route('serial.index')->with('success', 'Series Is Updated!');
 
         
     }
@@ -143,6 +157,8 @@ class SerialController extends Controller
      */
     public function destroy(Serial $serial)
     {
+        $this->authorize('create_film');
+
         $serial->delete();
 
         return redirect()->route('serial.index')->with('success', 'Serial Is Deleted!');

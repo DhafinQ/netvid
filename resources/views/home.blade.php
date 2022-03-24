@@ -11,6 +11,7 @@
      {{-- Slider --}}
      <div class="swiper mySwiper px-4 py-2 mb-8 mt-4 ">
         <div class="swiper-wrapper">
+            {{-- Serials --}}
         @foreach ($serials as $keys => $serial)
         <div class="swiper-slide">
             <div class="object-cover w-full h-96 grid grid-cols-2">
@@ -31,10 +32,37 @@
                   
         
         <!--{{++$keys}}-->
-        @if ($keys == 4)
+        @if ($keys == 3)
             @break
         @endif
         @endforeach
+
+        {{-- Film --}}
+        @foreach ($films as $keys => $film)
+        <div class="swiper-slide">
+            <div class="object-cover w-full h-96 grid grid-cols-2">
+              <div class="ml-32 mt-8">
+                  <div class="font-semibold text-2xl text-white">{{$film->judul}}</div>
+                  <div class="mb-8 mt-4">{{$film->sinopsis}}</div>
+                  <div class="content-end">
+                      <a href="{{ route('film.show' , $film->id) }}" class="py-4 w-48 underline text-gray-200 hover:text-white rounded-md hover:scale-110 ease-out duration-300"> 
+                           See More!
+                      </a>
+                  </div>
+              </div>
+              <div class="mt-8">
+                  <img class="rounded-md scale-90" src="{{$film->coverImage()}}" alt="">
+              </div>
+            </div>
+        </div>
+                  
+        
+        <!--{{++$keys}}-->
+        @if ($keys == 3)
+            @break
+        @endif
+        @endforeach
+
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -52,6 +80,7 @@
                 <x-heroicon-o-film class="w-8 h-8 text-gray-200"/>
             </div>
             Films
+            <a href="{{route('film.index')}}" class="ml-4 text-lg text-slate-500 hover:text-slate-400 underline duration-150 ease-out">See More</a>
         </h2>
         <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
             @foreach ($films as $keys=>$data)
@@ -72,7 +101,8 @@
             <div class="mr-2">
                 <x-heroicon-o-ticket class="w-8 h-8 text-gray-200"/>
             </div>
-            Serials
+            Series
+            <a href="{{route('serial.index')}}" class="ml-4 text-lg text-slate-500 hover:text-slate-400 underline duration-150 ease-out">See More</a>
         </h2>
 
         <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
