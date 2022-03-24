@@ -4,10 +4,11 @@ Aplikasi Clone Netflix.
 ## Kalian Bisa :
 
 - Melihat Film & Series terbaru
+- Login & Register
 - Mengedit Film & Series (Jika Admin)
-- Seach Sesuai Judul
-- Menghapus, dan
-- Print
+- Seach Sesuai Judul, dan
+- Menghapus
+
 
 <p align="center"><img src="https://drive.google.com/uc?export=view&id=1EaRj0d-rZmK6YypDywI2GfvQi0-VIWEF" width="800"></p>
 
