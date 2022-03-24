@@ -1,3 +1,19 @@
+# NetVid
+Aplikasi Clone Netflix.
+
+## Kalian Bisa :
+
+- Melihat Film & Series terbaru
+- Mengedit Film & Series (Jika Admin)
+- Seach Sesuai Judul
+- Menghapus, dan
+- Print
+
+<p align="center"><img src="https://drive.google.com/uc?export=view&id=1EaRj0d-rZmK6YypDywI2GfvQi0" width="800"></p>
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
