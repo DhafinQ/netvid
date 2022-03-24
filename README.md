@@ -1,5 +1,5 @@
 # NetVid
-Aplikasi Clone Netflix.
+Aplikasi Clone Netflix Menggunakan Laravel.
 
 ## Kalian Bisa :
 
