@@ -6,12 +6,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex flex-row-reverse">
+                    @can('create_serial')
                     <form action="" method="post">
                         @csrf
                         @method("DELETE")
                         <input type="submit" value="Delete" class="text-slate-600 hover:text-slate-500 justify-end items-end self-end">
                     </form>
                     <a href="{{ route('serial.edit' , $serial->id)}}" class="text-slate-600 hover:text-slate-500 justify-end items-end self-end mr-2">Edit</a>
+                    @endcan
                 </div>
                 <div class="p-6">
                     <x-auth-validation-errors />

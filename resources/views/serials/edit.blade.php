@@ -33,21 +33,21 @@
                                     <input type="number" name="season" id="season"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="50" value="{{$serial->season}}" autofocus>
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" value="{{$serial->season}}" autofocus>
                                 </div>
                                 <div>
                                     <x-label for="episode" :value="__('Episode')" />
                                     <input type="number" name="episode" id="episode"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="5000" value="{{$serial->episode}}" autofocus>
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" value="{{$serial->episode}}" autofocus>
                                 </div>
                                 <div>
                                     <x-label for="rating" :value="__('Rating')" />
                                     <input type="number" name="rating" id="rating"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="10" step="0.1" placeholder="1-10" value="{{$serial->rating}}" autofocus>
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" step="0.1" placeholder="1-10" value="{{$serial->rating}}" autofocus>
                                 </div>
                                 <div>
                                     <x-label for="sinopsis" :value="__('Sinopsis')" />

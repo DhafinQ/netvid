@@ -27,7 +27,7 @@ class UpdateSerialRequest extends FormRequest
         return [
             'judul' => 'required',
             'tahun' => 'required',
-            'season' => 'required|integer|max:100',
+            'season' => 'required|integer',
             'episode' => 'required|integer',
             'rating' => 'required|numeric',
             'genre' => 'required',
