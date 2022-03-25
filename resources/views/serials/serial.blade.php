@@ -74,7 +74,6 @@
             </div>
             Trending
         </h2>
-
         <div class="mt-4 grid md:grid-cols-5 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
             @foreach ($trends as $keys=>$data)
             <a href="{{route('serial.show' , $data->id)}}">

@@ -6,13 +6,13 @@
         </x-slot>
     </x-sidebar.link>
     
-    <x-sidebar.link title="Film" href="{{ route('film.index') }}" :isActive="request()->routeIs('film.index') || request()->routeIs('film.create') || request()->routeIs('film.edit')">
+    <x-sidebar.link title="Film" href="{{ route('film.index') }}" :isActive="request()->routeIs('film.index') || request()->routeIs('film.create') || request()->routeIs('film.edit') || request()->routeIs('film.show')">
         <x-slot name="icon">
             <x-heroicon-o-film class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 
-    <x-sidebar.link title="Series" href="{{ route('serial.index') }}" :isActive="request()->routeIs('serial.index') || request()->routeIs('serial.create') || request()->routeIs('serial.edit')">
+    <x-sidebar.link title="Series" href="{{ route('serial.index') }}" :isActive="request()->routeIs('serial.index') || request()->routeIs('serial.create') || request()->routeIs('serial.edit') || request()->routeIs('serial.show') ">
         <x-slot name="icon">
             <x-heroicon-o-ticket class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>

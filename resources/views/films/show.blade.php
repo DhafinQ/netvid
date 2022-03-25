@@ -6,12 +6,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex flex-row-reverse">
+                    @can('create_film')
                     <form action="" method="post">
                         @csrf
                         @method("DELETE")
                         <input type="submit" value="Delete" class="text-slate-600 hover:text-slate-500 justify-end items-end self-end">
                     </form>
                     <a href="{{ route('film.edit' , $film->id)}}" class="text-slate-600 hover:text-slate-500 justify-end items-end self-end mr-2">Edit</a>
+                    @endcan
                 </div>
                 <div class="p-6">
                     <x-auth-validation-errors />
@@ -55,7 +57,7 @@
                         </h2>
                         <div class="mt-4 grid md:grid-cols-7 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
                             @foreach ($news as $keys=>$data)
-                            <a href="{{route('serial.show' , $data->id)}}">
+                            <a href="{{route('film.show' , $data->id)}}">
                                 <div class="w-32 h-48 mr-4 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="margin-right:8px;background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>
@@ -76,7 +78,7 @@
                         </h2>
                         <div class="mt-4 grid md:grid-cols-7 sm:grid sm:grid-cols-2 gap-6 sm:justify-center">
                             @foreach ($films as $keys=>$data)
-                            <a href="{{route('serial.show' , $data->id)}}">
+                            <a href="{{route('film.show' , $data->id)}}">
                                 <div class="w-32 h-48 bg-grey-100 relative hover:scale-105 ease-out duration-300">
                                     <div class="absolute inset-0 bg-center z-0 opacity-60 rounded-lg" style="margin-right:8px;background-size: 100% 100%; background-repeat:no-repeat; background-image: url('{{$data->posterImage()}}')"></div>
                                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex items-end text-1xl text-left text-white font-semibold mb-2 mx-2">{{$data->judul}}</div>

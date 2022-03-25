@@ -22,21 +22,21 @@
                                 </div>
                                 <div>
                                     <x-label for="tahun" :value="__('Tahun')" />
-                                    <x-input id="tahun" class="block my-2 w-full" type="number" min="1888" max="2022" name="tahun" value="{{$film->tahun}}" autofocus />
+                                    <x-input id="tahun" class="block my-2 w-full" type="number" name="tahun" value="{{$film->tahun}}" autofocus />
                                 </div>
                                 <div>
                                     <x-label for="durasi" :value="__('Durasi')" />
                                     <input type="number" name="durasi" id="durasi"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="20" max="900" autofocus placeholder="minute" value="{{$film->durasi}}">
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" autofocus placeholder="minute" value="{{$film->durasi}}">
                                 </div>
                                 <div>
                                     <x-label for="rating" :value="__('Rating')" />
                                     <input type="number" name="rating" id="rating"
                                     class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                     focus:ring-slate-400 focus:ring-offset-1 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" min="1" max="10" step="0.1" autofocus placeholder="1-10" value="{{$film->rating}}">
+                                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1 block my-2 w-full" step="0.1" autofocus placeholder="1-10" value="{{$film->rating}}">
                                 </div>
                                 <div>
                                     <x-label for="genre" :value="__('Genre')" />
